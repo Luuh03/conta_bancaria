@@ -2,6 +2,7 @@ package conta_bancaria;
 
 import java.util.Scanner;
 
+import conta_bancaria.model.Conta;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -14,13 +15,14 @@ public class Menu {
 		
 		while(true) {
 			
-			System.out.println(Cores.ANSI_BLACK_BACKGROUND + Cores.TEXT_BLUE_BOLD + "*****************************************************");
-			System.out.println("                                                     ");
-			System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "                BANCO DO BRAZIL COM Z                ");
-			System.out.println("                                                     ");
-			System.out.println(Cores.TEXT_BLUE + "*****************************************************");
-			System.out.println("                                                     ");
-			System.out.println(Cores.TEXT_WHITE + "         1 - Criar Conta                             ");
+			System.out.print(Cores.ANSI_BLACK_BACKGROUND + Cores.TEXT_BLUE_BOLD);
+			System.out.println("*****************************************************");
+			System.out.println("                                                     " + Cores.TEXT_WHITE_BOLD_BRIGHT);
+			System.out.println("                BANCO DO BRAZIL COM Z                ");
+			System.out.println("                                                     " + Cores.TEXT_BLUE);
+			System.out.println("*****************************************************");
+			System.out.println("                                                     " + Cores.TEXT_WHITE);
+			System.out.println("         1 - Criar Conta                             ");
 			System.out.println("         2 - Listar todas as Contas                  ");
 			System.out.println("         3 - Buscar Conta por Numero                 ");
 			System.out.println("         4 - Atualizar Dados da Conta                ");
@@ -29,9 +31,9 @@ public class Menu {
 			System.out.println("         7 - Depositar                               ");
 			System.out.println("         8 - Transferir valores entre Contas         ");
 			System.out.println("         9 - Sair                                    ");
-			System.out.println("                                                     ");
-			System.out.println(Cores.TEXT_BLUE_BOLD + "*****************************************************");
-			System.out.println(Cores.TEXT_WHITE + "Entre com a opção desejada:                          ");
+			System.out.println("                                                     " + Cores.TEXT_BLUE_BOLD);
+			System.out.println("*****************************************************" + Cores.TEXT_WHITE);
+			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
 			
 			opcao = leia.nextInt();
