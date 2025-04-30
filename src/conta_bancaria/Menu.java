@@ -164,7 +164,7 @@ public class Menu {
  
 		} catch (IOException e) {
  
-			System.err.println("Ocorreu um erro ao tentar ler o teclado");
+			System.err.println("Você pressionou uma tecla diferente de enter!");
  
 		}
 	}
