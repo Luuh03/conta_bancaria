@@ -1,9 +1,11 @@
 package conta_bancaria;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.Scanner;
 
 import conta_bancaria.controller.ContaController;
+import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
@@ -109,6 +111,39 @@ public class Menu {
 					break;
 				case 4:
 					System.out.println("Atualizar Dados da Conta\n\n");
+					
+					System.out.println("Digite o número da conta: ");
+					numero = leia.nextInt();
+					
+					Optional<Conta> conta = contas.buscarNaCollection(numero);
+					
+					if(conta.isPresent()) {
+						System.out.print("Digite o número da Agência: ");
+						agencia = leia.nextInt();
+						
+						System.out.print("Digite o nome do Titular: ");
+						leia.skip("\\R");
+						titular = leia.nextLine();
+						
+						tipo = conta.get().getTipo();
+						
+						System.out.print("Digite o Saldo da Conta: ");
+						saldo = leia.nextFloat();
+						
+						switch(tipo) {
+						case 1 ->{
+							System.out.print("Digite o limite da Conta: ");
+							limite = leia.nextFloat();
+							contas.atualizar(new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
+						}
+						case 2 ->{
+							System.out.print("Digite o dia do aniversário do Titular: ");
+							aniversario = leia.nextInt();
+							contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
+						}
+					}
+					} else
+						System.out.printf("\nA conta do número %d não existe!", numero);
 					
 					keyPress();
 					break;
